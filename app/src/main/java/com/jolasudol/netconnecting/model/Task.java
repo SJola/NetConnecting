@@ -15,7 +15,7 @@ public class Task {
         this.value = value;
     }
 
-    public Task(){
+    public Task() {
 
     }
 
