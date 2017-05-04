@@ -16,7 +16,6 @@ public class TaskMapper {
         for (Task task : tasks) {
             taskDTOList.add(fromTask(task));
         }
-
         return taskDTOList;
     }
     public static TaskDTO fromTask(Task task) {
@@ -26,6 +25,13 @@ public class TaskMapper {
         taskDTO.setUser(7);
         taskDTO.setValue(task.getValue());
         return taskDTO;
+    }
+    public static Task fromTaskDTO(TaskDTO taskDTO){
+        Task task = new Task();
+        task.setId(taskDTO.getId());
+        task.setCompleted(taskDTO.isCompleted());
+        task.setValue(taskDTO.getValue());
+        return task;
     }
 
 }

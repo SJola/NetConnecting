@@ -1,20 +1,20 @@
 package com.jolasudol.netconnecting;
 
 
-        import android.os.AsyncTask;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.support.v7.widget.ButtonBarLayout;
-        import android.widget.Button;
-        import android.widget.ListView;
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.ButtonBarLayout;
+import android.widget.Button;
+import android.widget.ListView;
 
-        import com.jolasudol.netconnecting.model.Task;
+import com.jolasudol.netconnecting.model.Task;
 
-        import org.springframework.http.converter.StringHttpMessageConverter;
-        import org.springframework.http.converter.json.GsonHttpMessageConverter;
-        import org.springframework.web.client.RestTemplate;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         button = (Button) findViewById(R.id.addButton);
         new Async().execute();
-
     }
 
     private class Async extends AsyncTask<String, Void, String> {
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
             restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
 // Make the HTTP GET request, marshaling the response to a String
             TaskDTO result = restTemplate.getForObject(url, TaskDTO.class);
-
             return null;
         }
     }
