@@ -6,7 +6,7 @@ package com.jolasudol.netconnecting.model;
 
 public class Task {
     boolean completed;
-    long id;
+    Long id;
     String value;
 
     public Task(boolean completed, long id, String value) {

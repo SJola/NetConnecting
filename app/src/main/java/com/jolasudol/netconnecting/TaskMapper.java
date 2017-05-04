@@ -11,10 +11,21 @@ import java.util.Map;
  */
 
 public class TaskMapper {
-    public static List<TaskDTO> fromTaskDTO(Task task) {
+    public static List<TaskDTO> fromTask(List<Task> tasks) {
         List<TaskDTO> taskDTOList = new ArrayList<>();
-//    Map<String, String> tasksDTO = task.get
+        for (Task task : tasks) {
+            taskDTOList.add(fromTask(task));
+        }
 
-        return null;
+        return taskDTOList;
     }
+    public static TaskDTO fromTask(Task task) {
+        TaskDTO taskDTO = new TaskDTO();
+        taskDTO.setId(task.getId());
+        taskDTO.setCompleted(task.isCompleted());
+        taskDTO.setUser(7);
+        taskDTO.setValue(task.getValue());
+        return taskDTO;
+    }
+
 }

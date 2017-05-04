@@ -6,11 +6,11 @@ package com.jolasudol.netconnecting;
 
 public class TaskDTO {
     private boolean completed;
-    private long id;
+    private Long id;
     private String value;
-    private long user;
+    private Long user;
 
-    public TaskDTO(boolean completed, long id, String value, long user) {
+    public TaskDTO(long id, String value, boolean completed, long user) {
         this.completed = completed;
         this.id = id;
         this.value = value;

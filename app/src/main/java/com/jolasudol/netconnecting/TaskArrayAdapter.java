@@ -79,6 +79,4 @@ public class TaskArrayAdapter extends ArrayAdapter<TaskDTO> {
         }
 
     }
-
-
 }
