@@ -18,15 +18,17 @@ public class TaskMapper {
         }
         return taskDTOList;
     }
+
     public static TaskDTO fromTask(Task task) {
         TaskDTO taskDTO = new TaskDTO();
         taskDTO.setId(task.getId());
         taskDTO.setCompleted(task.isCompleted());
-        taskDTO.setUser(7);
+        taskDTO.setUser(9);
         taskDTO.setValue(task.getValue());
         return taskDTO;
     }
-    public static Task fromTaskDTO(TaskDTO taskDTO){
+
+    public static Task fromTaskDTO(TaskDTO taskDTO) {
         Task task = new Task();
         task.setId(taskDTO.getId());
         task.setCompleted(taskDTO.isCompleted());
@@ -34,4 +36,11 @@ public class TaskMapper {
         return task;
     }
 
+    public static List<Task> fromTaskDTO(List<TaskDTO> tasks) {
+        List<Task> taskList = new ArrayList<>();
+        for (TaskDTO task : tasks) {
+            taskList.add(fromTaskDTO(task));
+        }
+        return taskList;
+    }
 }

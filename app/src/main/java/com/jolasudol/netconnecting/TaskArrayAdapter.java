@@ -54,7 +54,7 @@ public class TaskArrayAdapter extends ArrayAdapter<TaskDTO> {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                new UpdateAsyncTask().execute(taskDTO);
+//                new UpdateAsyncTask().execute(taskDTO);
             }
         });
 
@@ -62,21 +62,23 @@ public class TaskArrayAdapter extends ArrayAdapter<TaskDTO> {
         return convertView;
     }
 
-    private class UpdateAsyncTask extends AsyncTask<TaskDTO, Void, String> {
+//    private class UpdateAsyncTask extends AsyncTask<TaskDTO, Void, String> {
+//
+//        @Override
+//        protected String doInBackground(TaskDTO... params) {
+//            String url = "https://shrouded-fjord-81597.herokuapp.com/api/task";
+//            RestTemplate restTemplate = new RestTemplate();
+//            restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
+//            HttpHeaders headers = new HttpHeaders();
+//            headers.setContentType(MediaType.APPLICATION_JSON);
+//            HttpEntity<TaskDTO> entity = new HttpEntity<>(params[0], headers);
+//            TaskDTO taskDTO = restTemplate.exchange(url, HttpMethod.PUT, entity, TaskDTO.class).getBody();
+//            params[0].setCompleted(taskDTO.isCompleted());
+//            notifyDataSetChanged();
+//            return null;
+//        }
+//
+//    }
 
-        @Override
-        protected String doInBackground(TaskDTO... params) {
-            String url = "https://shrouded-fjord-81597.herokuapp.com/api/task";
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.getMessageConverters().add(new GsonHttpMessageConverter());
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            HttpEntity<TaskDTO> entity = new HttpEntity<>(params[0], headers);
-            TaskDTO taskDTO = restTemplate.exchange(url, HttpMethod.PUT, entity, TaskDTO.class).getBody();
-            params[0].setCompleted(taskDTO.isCompleted());
-            notifyDataSetChanged();
-            return null;
-        }
 
-    }
 }
